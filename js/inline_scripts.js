@@ -367,7 +367,7 @@
         document.querySelector('.match-select').style.display = 'block';
         const matchSelect = document.getElementById('matchSelect');
 
-        fetch('https://raw.githubusercontent.com/cinearena/id/refs/heads/main/ipl.json')
+        fetch('https://raw.githubusercontent.com/cinearena/json/refs/heads/main/ipl.json')
           .then(response => response.json())
           .then(matches => {
             matchSelect.innerHTML = '';
@@ -389,7 +389,7 @@
         return;
       }
 
-      fetch('https://raw.githubusercontent.com/cinearena/id/refs/heads/main/ipl.json')
+      fetch('https://raw.githubusercontent.com/cinearena/json/refs/heads/main/ipl.json')
         .then(r => r.json())
         .then(matches => {
           if (matches && matches[matchId]) {
