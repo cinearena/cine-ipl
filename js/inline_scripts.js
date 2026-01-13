@@ -72,10 +72,7 @@
         $('#skpop').removeClass('show'); 
         $('#skpop').attr('aria-hidden','true'); 
       });
-      try { 
-        if(confirm("Join Telegram For More Links! @cine_arena")) 
-          window.open("https://t.me/cine_arena", '_blank'); 
-      } catch(e){}
+      
     })();
 
     /* ---------- Player code with improved JW initialization ---------- */
