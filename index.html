@@ -1,93 +1,24 @@
-<html lang="en">
-<head>
+<html lang="en"><head>
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
   <title>CineArena.Live</title>
 
   <!-- External player CSS -->
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/dplayer.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/controls.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="cdn.plyr.io/3.7.8/plyr.css">
+  <link rel="stylesheet" href="cdn.jsdelivr.net/npm/dplayer_1.26.0/dist/dplayer.min.css">
+  <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/shaka_player/4.16.3/controls.css" crossorigin="anonymous">
+
+  <!-- NOTE: JW Player library will be loaded dynamically below (see code). -->
 
   <!-- Small anti-devtools script kept as original (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
+  <script src="cdn.jsdelivr.net/npm/disable_devtool_latest"></script>
   
-  <script src="https://cdn.jwplayer.com/libraries/sahhwvzq.js" async></script>
-  <link rel="stylesheet" href="css/inline_styles.css">
+
   
-  <style>
-    /* Popup modal styles */
-    .player-popup-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .player-popup-content {
-      width: 90%;
-      max-width: 1200px;
-      max-height: 90vh;
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .player-popup-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: white;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 100;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .player-popup-close:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .player-popup-header {
-      margin-bottom: 15px;
-      padding-right: 40px;
-    }
-    
-    .player-popup-header h3 {
-      color: white;
-      margin: 0;
-      font-size: 1.2rem;
-    }
-    
-    .player-popup-body {
-      width: 100%;
-      height: calc(90vh - 100px);
-      position: relative;
-    }
-    
-    #popupPlayer {
-      width: 100%;
-      height: 100%;
-      background: #000;
-    }
-  </style>
-</head>
+<script src="cdn.jwplayer.com/libraries/sahhwvzq.js" async=""></script><link rel="stylesheet" href="css/inline_styles.css"></head>
 <body>
   <header id="topHeader" role="banner" aria-label="Site header">
     <div class="header-inner">
@@ -114,7 +45,13 @@
         </div>
       </div>
 
-      <!-- Original player container (hidden by default) -->
+      <div id="errorMessage" class="error-message" role="status" aria-live="polite" style="display: block;">
+        <h6>Invalid or Missing ID</h6>
+        
+      </div>
+
+    
+
       <div id="player" aria-label="Video player" style="display: none;">
         <div class="custom-shaka-spinner-container" id="customSpinner" aria-hidden="true">
           <div class="custom-shaka-spinner" aria-hidden="true"></div>
@@ -125,22 +62,9 @@
     </div>
   </div>
 
-  <!-- Player Popup Modal -->
-  <div id="playerPopup" class="player-popup-modal">
-    <div class="player-popup-content">
-      <button class="player-popup-close" id="closePlayerPopup" aria-label="Close player">×</button>
-      <div class="player-popup-header">
-        <h3>Watch Content</h3>
-      </div>
-      <div class="player-popup-body">
-        <div id="popupPlayer"></div>
-      </div>
-    </div>
-  </div>
-
   <div style="max-width:var(--max-width);width:100%;margin:10px auto;display:flex;justify-content:center;">
     <a class="telegram-join" href="https://t.me/cine_arena" target="_blank" rel="noopener noreferrer" style="padding:12px 20px;">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg" alt="" style="width:18px;height:18px;margin-right:8px;">
+      <img src="cdn.jsdelivr.net/npm/simple_icons_v9/icons/telegram.svg" alt="" style="width:18px;height:18px;margin-right:8px;">
       Join Telegram Channel
     </a>
   </div>
@@ -158,96 +82,15 @@
   </div>
 
   <!-- External scripts (players) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/dplayer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/shaka-player.ui.js" crossorigin="anonymous"></script>
+  <script src="ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script src="cdn.jsdelivr.net/npm/hls.js_1"></script>
+  <script src="cdn.jsdelivr.net/npm/dplayer_1.26.0/dist/dplayer.min.js"></script>
+  <script src="cdnjs.cloudflare.com/ajax/libs/shaka_player/4.16.3/shaka_player.ui.js" crossorigin="anonymous"></script>
 
-  <script src="js/inline_scripts.js"></script>
   
-  <script>
-    // Modified initialization to show player in popup for invalid IDs
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get URL parameters
-      const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get('id');
-      
-      // If no ID or invalid ID, show player in popup
-      if (!id || id.trim() === '') {
-        // Show the player popup
-        const playerPopup = document.getElementById('playerPopup');
-        playerPopup.style.display = 'flex';
-        
-        // Initialize player in popup
-        initializePopupPlayer();
-      } else {
-        // Original logic for valid ID
-        // Your existing player initialization code here
-        initializeMainPlayer(id);
-      }
-      
-      // Close popup functionality
-      document.getElementById('closePlayerPopup').addEventListener('click', function() {
-        document.getElementById('playerPopup').style.display = 'none';
-      });
-      
-      // Close popup when clicking outside
-      document.getElementById('playerPopup').addEventListener('click', function(e) {
-        if (e.target === this) {
-          this.style.display = 'none';
-        }
-      });
-      
-      // Escape key to close popup
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          document.getElementById('playerPopup').style.display = 'none';
-        }
-      });
-    });
-    
-    function initializePopupPlayer() {
-      // Initialize your player in the popup
-      // Example with DPlayer (you can replace with your preferred player)
-      const dp = new DPlayer({
-        container: document.getElementById('popupPlayer'),
-        screenshot: true,
-        video: {
-          url: 'https://example.com/sample-video.mp4', // Default video or placeholder
-          type: 'auto'
-        },
-        danmaku: {
-          id: 'demo',
-          api: 'https://api.prprpr.me/dplayer/'
-        }
-      });
-      
-      // Or initialize your preferred player (Plyr, Shaka, JWPlayer, etc.)
-      console.log('Popup player initialized for invalid/missing ID');
-      
-      // You can also show a message in the player
-      setTimeout(() => {
-        // Optionally show a custom message or demo content
-        const popupHeader = document.querySelector('.player-popup-header h3');
-        if (popupHeader) {
-          popupHeader.textContent = 'Demo Player - Join Telegram for Full Access';
-        }
-      }, 1000);
-    }
-    
-    function initializeMainPlayer(id) {
-      // Your existing player initialization code for valid IDs
-      console.log('Initializing main player with ID:', id);
-      
-      // Show the main player container
-      document.getElementById('player').style.display = 'block';
-      
-      // Your existing player setup logic here...
-      // Example:
-      // const player = new Plyr('#player', { /* options */ });
-      // player.source = { /* source based on ID */ };
-    }
-  </script>
-</body>
-</html>
+
+  
+
+<script src="js/inline_scripts.js"></script></body></html>
+
