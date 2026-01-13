@@ -150,7 +150,7 @@
       color:var(--text-color); 
       margin:10px 0;
     }
-    .error-message h2{ color:var(--primary-color); margin-bottom:8px }
+    .error-message h4{ color:var(--primary-color); margin-bottom:8px }
     .error-message p{ color:var(--muted) }
 
     .modal{ display:none; position:fixed; inset:0; align-items:center; justify-content:center; background: rgba(0,0,0,0.45); z-index:9999; padding:16px }
