@@ -143,7 +143,7 @@
 
     .error-message{ 
       display:none; 
-      padding:18px; 
+      padding:5px; 
       border-radius:12px; 
       background: rgba(220,38,38,0.06); 
       border:1px solid rgba(220,38,38,0.12); 
