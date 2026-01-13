@@ -359,7 +359,7 @@
       $('#skpop').addClass('show');
       $('#skpop').attr('aria-hidden','false');
       $('#closeModal, #alreadyJoined').on('click',function(){ $('#skpop').removeClass('show'); $('#skpop').attr('aria-hidden','true'); });
-      $('#joinChannel').on('click',function(){ window.open('https://t.me/sktechsports','_blank'); $('#skpop').removeClass('show'); $('#skpop').attr('aria-hidden','true'); });
+      $('#joinChannel').on('click',function(){ window.open('https://t.me/cine_arena','_blank'); $('#skpop').removeClass('show'); $('#skpop').attr('aria-hidden','true'); });
 
       const matchId = getUrlParam('id');
       if (!matchId) {
