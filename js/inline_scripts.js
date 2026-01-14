@@ -367,7 +367,7 @@
         document.querySelector('.match-select').style.display = 'block';
         const matchSelect = document.getElementById('matchSelect');
 
-        fetch('https://cors-proxy.fly.dev/https://ipelskcricinfo.saqlainhaider8198.workers.dev')
+        fetch('https://api.allorigins.win/raw?url=https://ipelskcricinfo.saqlainhaider8198.workers.dev')
           .then(response => response.json())
           .then(matches => {
             matchSelect.innerHTML = '';
@@ -389,7 +389,7 @@
         return;
       }
 
-      fetch('https://cors-proxy.fly.dev/https://ipelskcricinfo.saqlainhaider8198.workers.dev')
+      fetch('https://api.allorigins.win/raw?url=https://ipelskcricinfo.saqlainhaider8198.workers.dev')
         .then(r => r.json())
         .then(matches => {
           if (matches && matches[matchId]) {
